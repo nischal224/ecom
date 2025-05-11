@@ -1,7 +1,6 @@
-import 'package:ecom/practise/bottomsheet.dart';
-import 'package:ecom/screens/login.dart';
-import 'package:ecom/screens/mainpage/mainpage.dart';
-import 'package:ecom/screens/paymentmethods.dart';
+import 'package:ecom/screens/mybag.dart';
+import 'package:ecom/screens/myorders.dart';
+import 'package:ecom/screens/myprofile.dart';
 import 'package:ecom/screens/settings2.dart';
 
 import 'package:flutter/material.dart';
@@ -15,6 +14,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Settingstwo());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Mybag());
   }
 }

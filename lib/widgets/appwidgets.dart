@@ -479,3 +479,190 @@ void passwordChange(BuildContext context) {
     },
   );
 }
+
+Widget myProfile(String titlename, String subtitle) {
+  return Column(
+    children: [
+      ListTile(
+        title: Text(
+          titlename,
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        subtitle: Text(subtitle),
+        trailing: Icon(Icons.arrow_forward_ios_sharp),
+      ),
+    ],
+  );
+}
+
+Widget orders(
+  String orderno,
+  String date,
+  String trakingno,
+  String quantity,
+  String amount,
+  String details,
+  String status,
+  Color background,
+) {
+  return Material(
+    elevation: 8.0,
+    child: Container(
+      padding: EdgeInsets.all(15),
+      color: Colors.white10,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "order no$orderno",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                ),
+              ),
+              Text(date),
+            ],
+          ),
+          SizedBox(height: 10),
+
+          Text(
+            "Tracking number:  $trakingno",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 10),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Quantity:  $quantity",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                "Tax Amount:  $amount",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                alignment: Alignment.center,
+                padding: EdgeInsets.all(5),
+                width: 98,
+                height: 36,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black, width: 2),
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                child: Text(details),
+              ),
+              Text(status, style: TextStyle(color: background)),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+Widget mybag(
+  String imagepp,
+  String dresscode,
+  String colortype,
+  String sizetype,
+  String price,
+  int order,
+) {
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Image.network(imagepp, fit: BoxFit.cover, height: 150, width: 150),
+      SizedBox(width: 10),
+      Expanded(
+        child: Container(
+          padding: EdgeInsets.all(10),
+          height: 150,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Product Name + Icon
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Text(
+                      dresscode,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  Icon(Icons.more_vert),
+                ],
+              ),
+              SizedBox(height: 5),
+
+              // Color + Size
+              Text(
+                'Color: $colortype  Size: $sizetype',
+                style: TextStyle(fontSize: 16),
+              ),
+              SizedBox(height: 10),
+
+              // Quantity + Price
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Quantity controls
+                  Row(
+                    children: [
+                      _qtyButton(Icons.remove),
+                      SizedBox(width: 10),
+                      Text(order.toString(), style: TextStyle(fontSize: 16)),
+                      SizedBox(width: 10),
+                      _qtyButton(Icons.add),
+                    ],
+                  ),
+
+                  // Price
+                  Text(
+                    price,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    ],
+  );
+}
+
+// Helper widget for buttons
+Widget _qtyButton(IconData icon) {
+  return Material(
+    borderRadius: BorderRadius.circular(50),
+    elevation: 4,
+    child: InkWell(
+      borderRadius: BorderRadius.circular(50),
+      onTap: () {},
+      child: Container(
+        height: 30,
+        width: 30,
+        decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+        child: Icon(icon, size: 18),
+      ),
+    ),
+  );
+}

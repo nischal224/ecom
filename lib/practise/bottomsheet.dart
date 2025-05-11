@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BottomSheetExample extends StatefulWidget {
+  const BottomSheetExample({super.key});
+
   @override
   _BottomSheetExampleState createState() => _BottomSheetExampleState();
 }
