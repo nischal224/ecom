@@ -666,3 +666,82 @@ Widget _qtyButton(IconData icon) {
     ),
   );
 }
+
+Widget womensTop(
+  String imageurl,
+  String name,
+  String description,
+  Icon star,
+  String price,
+  int ratingCount,
+  Color? heartBackground,
+) {
+  return Container(
+    height: 120,
+    child: Row(
+      children: [
+        Image.network(imageurl, fit: BoxFit.cover, height: 120, width: 104),
+        Expanded(
+          child: Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Material(
+                elevation: 8.0,
+                child: Container(
+                  padding: EdgeInsets.all(15),
+                  color: Colors.white,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        name,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      Text(description, overflow: TextOverflow.ellipsis),
+                      Row(
+                        children: List.generate(
+                          ratingCount,
+                          (index) => Icon(
+                            star.icon,
+                            color: star.color ?? Colors.orange,
+                            size: 16,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        price,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                right: 0,
+                bottom: -10,
+                child: Material(
+                  borderRadius: BorderRadius.circular(25),
+                  elevation: 8.0,
+                  child: Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                    ),
+                    child: Icon(
+                      Icons.favorite,
+                      color: heartBackground ?? Colors.transparent,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}
