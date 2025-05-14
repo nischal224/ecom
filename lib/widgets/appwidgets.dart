@@ -676,7 +676,7 @@ Widget womensTop(
   int ratingCount,
   Color? heartBackground,
 ) {
-  return Container(
+  return SizedBox(
     height: 120,
     child: Row(
       children: [
@@ -744,4 +744,148 @@ Widget womensTop(
       ],
     ),
   );
+}
+
+Widget favToprow(
+  double height,
+  double width,
+  String textArea,
+  Color textcolor,
+) {
+  return Container(
+    alignment: Alignment.center,
+    height: height,
+    width: width,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(25),
+      color: Colors.black,
+    ),
+    child: Text(textArea, style: TextStyle(color: textcolor)),
+  );
+}
+
+Widget filtersPriceforAll(
+  IconData filter,
+  String filtertext,
+  IconData priceicon,
+  String pricetext,
+  IconData iconlast,
+) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Row(
+        children: [
+          Icon(filter),
+          Appwidgets.sizedboxsmallwidth(),
+          Text(filtertext),
+        ],
+      ),
+      Row(
+        children: [
+          Icon(priceicon),
+          Appwidgets.sizedboxsmallwidth(),
+          Text(pricetext),
+        ],
+      ),
+      Row(children: [Icon(iconlast)]),
+    ],
+  );
+}
+
+Widget shirt(
+  String imagedata,
+  String titletext,
+  String subtitletext,
+  String colorchoice,
+  String sizeclothes,
+  String price,
+  IconData icon,
+  int no,
+) {
+  return Row(
+    children: [
+      ClipRRect(
+        borderRadius: BorderRadius.circular(15),
+        child: Image.network(
+          imagedata,
+          fit: BoxFit.cover,
+          height: 120,
+          width: 104,
+        ),
+      ),
+
+      Expanded(
+        child: Material(
+          elevation: 8.0,
+          child: Container(
+            padding: EdgeInsets.all(15),
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(titletext),
+                    Text(subtitletext, style: Appwidgets.subheaderBoldForall()),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 100,
+                          child: Text('Color: $colorchoice'),
+                        ),
+                        Text('size:$sizeclothes'),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 100, child: Text(price)),
+                        Row(
+                          children: List.generate(
+                            no,
+                            (index) => Icon(Icons.star, color: Colors.amber),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Positioned(
+                  bottom: -30,
+                  right: 0,
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.deepOrange,
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: Icon(Icons.shopping_bag, color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    ],
+  );
+}
+
+class Appwidgets {
+  static SizedBox sizeboxSmallheight() {
+    return SizedBox(height: 15);
+  }
+
+  static TextStyle headerBoldForall() {
+    return TextStyle(fontWeight: FontWeight.bold, fontSize: 34);
+  }
+
+  static TextStyle subheaderBoldForall() {
+    return TextStyle(fontWeight: FontWeight.bold, fontSize: 18);
+  }
+
+  static SizedBox sizedboxsmallwidth() {
+    return SizedBox(width: 10);
+  }
 }

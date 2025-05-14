@@ -32,7 +32,7 @@ class _WomenstopState extends State<Womenstop> {
                 "Women's tops",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 34),
               ),
-              SizedBox(height: 10),
+              Appwidgets.sizeboxSmallheight(),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -130,7 +130,7 @@ class _WomenstopState extends State<Womenstop> {
                   ],
                 ),
               ),
-              SizedBox(height: 10),
+              Appwidgets.sizeboxSmallheight(),
               Container(
                 width: double.infinity,
                 height: 24,
@@ -156,7 +156,7 @@ class _WomenstopState extends State<Womenstop> {
                   ],
                 ),
               ),
-              SizedBox(height: 15),
+              Appwidgets.sizeboxSmallheight(),
               womensTop(
                 'https://images.pexels.com/photos/2681751/pexels-photo-2681751.jpeg?auto=compress&cs=tinysrgb&w=600',
                 'PullOver',
@@ -166,7 +166,7 @@ class _WomenstopState extends State<Womenstop> {
                 4,
                 Colors.black,
               ),
-              SizedBox(height: 15),
+              Appwidgets.sizeboxSmallheight(),
 
               womensTop(
                 'https://images.pexels.com/photos/1857375/pexels-photo-1857375.jpeg?auto=compress&cs=tinysrgb&w=600',
