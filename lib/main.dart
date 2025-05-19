@@ -1,5 +1,9 @@
+import 'package:ecom/practise/sortsby.dart';
 import 'package:ecom/screens/favorites.dart';
-import 'package:ecom/screens/womensTop.dart';
+import 'package:ecom/screens/paymentmethods.dart';
+import 'package:ecom/screens/shippingAddress.dart';
+import 'package:ecom/screens/signup.dart';
+import 'package:ecom/screens/summersales.dart';
 
 import 'package:flutter/material.dart';
 
@@ -12,6 +16,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Favorites());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Signup());
   }
 }

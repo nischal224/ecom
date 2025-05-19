@@ -303,7 +303,7 @@ void atmsnack(BuildContext context) {
                   "Add new card",
                   style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 15),
+                Appwidgets.sizeboxSmallheight(),
                 Material(
                   elevation: 5,
                   child: Container(
@@ -319,7 +319,7 @@ void atmsnack(BuildContext context) {
                     ),
                   ),
                 ),
-                SizedBox(height: 15),
+                Appwidgets.sizeboxSmallheight(),
                 Material(
                   elevation: 5,
                   child: Container(
@@ -375,7 +375,7 @@ void atmsnack(BuildContext context) {
                     ),
                   ),
                 ),
-                SizedBox(height: 15),
+                Appwidgets.sizeboxSmallheight(),
 
                 buttonForall('ADD CARD'),
               ],
@@ -834,7 +834,7 @@ Widget shirt(
                           width: 100,
                           child: Text('Color: $colorchoice'),
                         ),
-                        Text('size:$sizeclothes'),
+                        Text('size: $sizeclothes'),
                       ],
                     ),
                     Row(
@@ -889,3 +889,53 @@ class Appwidgets {
     return SizedBox(width: 10);
   }
 }
+
+Widget shippingAddress(
+  String fullname,
+  String address,
+  String city,
+  String state,
+  String zipcode,
+  String country,
+  bool tick,
+) {
+  return Material(
+    elevation: 8.0,
+    child: Container(
+      padding: EdgeInsets.all(15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(fullname, style: Appwidgets.subheaderBoldForall()),
+              Text('Edit', style: TextStyle(color: Colors.red)),
+            ],
+          ),
+          Appwidgets.sizeboxSmallheight(),
+          Text(address),
+          Row(
+            children: [
+              Text('$city, '),
+              Text('$state  '),
+              Text('$zipcode , '),
+              Text(country),
+            ],
+          ),
+          Row(
+            children: [
+              Checkbox(value: tick, onChanged: (value) {}),
+              Text(
+                'Use as the shipping address',
+                style: Appwidgets.subheaderBoldForall(),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+
